@@ -49,8 +49,8 @@ function unescapeFormat(s) {
     }));
 }
 
-const reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-const reHasRegExpChar = new RegExp(reRegExpChar.source);
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+var reHasRegExpChar = new RegExp(reRegExpChar.source);
 
 export function regexEscape(string) {
     return (string && reHasRegExpChar.test(string)) ? string.replace(reRegExpChar, '\\$&') : (string || '');
