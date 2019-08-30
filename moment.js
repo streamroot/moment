@@ -680,8 +680,11 @@
         }));
     }
 
-    function regexEscape(s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+    var reHasRegExpChar = new RegExp(reRegExpChar.source);
+
+    function regexEscape(string) {
+        return (string && reHasRegExpChar.test(string)) ? string.replace(reRegExpChar, '\\$&') : (string || '');
     }
 
     var tokens = {};
