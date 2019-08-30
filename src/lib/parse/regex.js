@@ -52,7 +52,7 @@ function unescapeFormat(s) {
 const reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
 const reHasRegExpChar = RegExp(reRegExpChar.source);
 
-export function regexEscape(s) {
+export function regexEscape(string) {
     return (string && reHasRegExpChar.test(string))
     ? string.replace(reRegExpChar, '\\$&')
     : string
